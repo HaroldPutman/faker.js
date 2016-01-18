@@ -112,4 +112,32 @@ describe("commerce.js", function() {
     });
   });
 
+  describe("fileExtension()", function() {
+      it("returns random value from commerce.file.extension array", function() {
+          var extension = faker.commerce.fileExtension();
+          assert.ok(faker.definitions.commerce.file.extension.indexOf(extension) !== -1);
+      });
+  });
+
+  describe("fileDocument()", function() {
+      it("returns random value from commerce.file.document array", function() {
+          var document = faker.commerce.fileDocument();
+          assert.ok(faker.definitions.commerce.file.document.indexOf(document) !== -1);
+      });
+  });
+
+  describe("fileModifier()", function() {
+      it("returns random value from commerce.file.modifier array", function() {
+          var modifier = faker.commerce.fileModifier();
+          assert.ok(faker.definitions.commerce.file.modifier.indexOf(modifier) !== -1);
+      });
+  });
+
+  describe("fileName()", function() {
+      it("returns a file name", function() {
+          var name = faker.commerce.fileName();
+          assert.ok(name.length > 4);
+      });
+  });
+
 });
