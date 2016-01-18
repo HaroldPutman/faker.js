@@ -138,6 +138,37 @@ describe("commerce.js", function() {
           var name = faker.commerce.fileName();
           assert.ok(name.length > 4);
       });
+
+      it("Can take a format option", function() {
+        var name = faker.commerce.fileName({"format": "Build-{{random.number}}.log"});
+        assert.ok(name.match(/Build-\d+\.log/i));
+      });
+
+      it("Can take a camel case option", function() {
+        var name = faker.commerce.fileName({"case": "camel"});
+        assert.ok(name.match(/^[A-Za-z]+(\(\d+\))?\.[a-z]+$/) !== null);
+      });
+
+      it("Can take a train case option", function() {
+        var name = faker.commerce.fileName({"case": "train"});
+        assert.ok(name.match(/^[A-Za-z\-]+(\(\d+\))?\.[a-z]+$/) !== null);
+      });
+
+      it("Can take a snake case option", function() {
+        var name = faker.commerce.fileName({"case": "snake"});
+        assert.ok(name.match(/^[a-z_]+(\(\d+\))?\.[a-z]+$/) !== null);
+      });
+
+      it("Can take a spinal case option", function() {
+        var name = faker.commerce.fileName({"case": "spinal"});
+        assert.ok(name.match(/^[a-z\-]+(\(\d+\))?\.[a-z]+$/) !== null);
+      });
+
+      it("Can take an upper case option", function() {
+        var name = faker.commerce.fileName({"case": "upper"});
+        assert.ok(name.match(/^[A-Z ]+(\(\d+\))?\.[a-z]+$/) !== null);
+      });
+
   });
 
 });
